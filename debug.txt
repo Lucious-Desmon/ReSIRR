@@ -1,0 +1,21 @@
+$ python train_reflection_rl.py   --train_data_dir "/sirr2/datasets/DRR/jsonl"   --multiple_datasets "metadata_nature_real.jsonl" "metadata_syn2.jsonl" "metadata_drr.jsonl" "RRW_RR2k.jsonl"   --multiple_datasets_probabilities 0.21 0.21 0.29 0.29   --test_data_dir /sirr2/datasets/DRR/jsonl   --test_datasets metadata_test_real.jsonl   --resolution 768   --resize_scale 1.1   --batch_size 8
+Traceback (most recent call last):
+  File "train_reflection_rl.py", line 19, in <module>
+    import MyFCN_el
+  File "/sirr2/ReSIRR/MyFCN_el.py", line 8, in <module>
+    from chainer.links.caffe import CaffeFunction
+  File "/root/miniconda3/envs/rellie-rl/lib/python3.8/site-packages/chainer/links/caffe/__init__.py", line 1, in <module>
+    from chainer.links.caffe.caffe_function import CaffeFunction  # NOQA
+  File "/root/miniconda3/envs/rellie-rl/lib/python3.8/site-packages/chainer/links/caffe/caffe_function.py", line 10, in <module>
+    from chainer.links.caffe.protobuf3 import caffe_pb2 as caffe_pb
+  File "/root/miniconda3/envs/rellie-rl/lib/python3.8/site-packages/chainer/links/caffe/protobuf3/caffe_pb2.py", line 33, in <module>
+    _descriptor.EnumValueDescriptor(
+  File "/root/miniconda3/envs/rellie-rl/lib/python3.8/site-packages/google/protobuf/descriptor.py", line 920, in __new__
+    _message.Message._CheckCalledFromGeneratedFile()
+TypeError: Descriptors cannot be created directly.
+If this call came from a _pb2.py file, your generated code is out of date and must be regenerated with protoc >= 3.19.0.
+If you cannot immediately regenerate your protos, some other possible workarounds are:
+ 1. Downgrade the protobuf package to 3.20.x or lower.
+ 2. Set PROTOCOL_BUFFERS_PYTHON_IMPLEMENTATION=python (but this will use pure-Python parsing and will be much slower).
+
+More information: https://developers.google.com/protocol-buffers/docs/news/2022-05-06#python-updates

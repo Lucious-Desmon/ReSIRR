@@ -130,7 +130,7 @@ def main(fout):
     pixelwise_a3c_el.chainer.cuda.get_device_from_id(args.gpu_id).use()
 
     # load myfcn model
-    model = MyFCN_el.MyFcn(N_ACTIONS)
+    model = MyFCN_el.MyFcn(args.n_actions)
 
     optimizer = pixelwise_a3c_el.chainer.optimizers.Adam(alpha=args.learning_rate)
     optimizer.setup(model)
@@ -200,4 +200,4 @@ if __name__ == "__main__":
         fout.write("{s}[h]\n".format(s=(end - start) / 60 / 60))
         fout.close()
     except Exception as error:
-        print(error.message)
+        print(str(error))
